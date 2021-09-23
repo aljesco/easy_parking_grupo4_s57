@@ -4,6 +4,7 @@
     Author     : ajeo
 --%>
 
+<%@page import="com.google.gson.Gson"%>
 <%@page import="java.util.List"%>
 <%@page import="logica.Parqueadero"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -58,7 +59,7 @@
                 respuesta += "\"" + proceso + "\": true, \"Parqueaderos\":[]";
             }
             else {
-                respuesta += "\"" + proceso + "\": true, \"Parqueaderos\":" + new Gson().toJson(listaParqueaderos);
+                respuesta += "\"" + proceso + "\": true,\"Parqueade\":" + new Gson().toJson(listaParqueaderos);
             }
             break;
         default:

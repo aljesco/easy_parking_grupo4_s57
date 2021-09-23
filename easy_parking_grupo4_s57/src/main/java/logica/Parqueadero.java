@@ -152,7 +152,6 @@ public class Parqueadero {
             parqueadero.setTarifaCarros(Integer.parseInt(datos.getString("tarifaCarros")));
             parqueadero.setTarifaMotos(Integer.parseInt(datos.getString("tarifaMotos")));
             listaParqueaderos.add(parqueadero);
-            
         }
         conexion.closeConnection();
         return listaParqueaderos;
