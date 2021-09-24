@@ -65,6 +65,10 @@ public class Parqueadero {
     public void setTarifaMotos(int tarifaMotos) {
         this.tarifaMotos = tarifaMotos;
     }
+
+    public void setIdParqueadero(int idParqueadero) {
+        this.idParqueadero = idParqueadero;
+    }
     
     // CRUD de parqueaderos
     public boolean guardarParqueadero(){
@@ -146,6 +150,7 @@ public class Parqueadero {
         Parqueadero parqueadero;
         while (datos.next()) {
             parqueadero = new Parqueadero();
+            parqueadero.setIdParqueadero(Integer.parseInt(datos.getString("idParqueadero")));
             parqueadero.setNombre(datos.getString("nombre"));
             parqueadero.setMaxCapacidadCarros(Integer.parseInt(datos.getString("maxCapacidadCarros")));
             parqueadero.setMaxCapacidadMotos(Integer.parseInt(datos.getString("maxCapacidadMotos")));

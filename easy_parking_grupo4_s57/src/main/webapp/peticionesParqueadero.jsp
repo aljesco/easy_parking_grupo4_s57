@@ -30,6 +30,7 @@
             break;
         case "actualizarParqueadero":
             System.out.println("Actualizar parqueadero.");
+            parqueadero.setIdParqueadero(Integer.parseInt(request.getParameter("idParqueadero")));
             parqueadero.setNombre(request.getParameter("nombre"));
             parqueadero.setMaxCapacidadCarros(Integer.parseInt(request.getParameter("maxCapacidadCarros")));
             parqueadero.setMaxCapacidadMotos(Integer.parseInt(request.getParameter("maxCapacidadMotos")));
@@ -53,13 +54,13 @@
             }
             break;
         case "listarParqueaderos":
-            System.out.println("Eliminar parqueadero.");
+            System.out.println("Mostrar parqueadero.");
             List<Parqueadero> listaParqueaderos = parqueadero.listarParqueaderos();
             if(listaParqueaderos.isEmpty()) {
                 respuesta += "\"" + proceso + "\": true, \"Parqueaderos\":[]";
             }
             else {
-                respuesta += "\"" + proceso + "\": true,\"Parqueade\":" + new Gson().toJson(listaParqueaderos);
+                respuesta += "\"" + proceso + "\": true,\"Parqueadero\":" + new Gson().toJson(listaParqueaderos);
             }
             break;
         default:

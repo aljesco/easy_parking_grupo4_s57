@@ -23,7 +23,7 @@ public class ConexionBD {
     private Statement stmt = null;
 
     public ConexionBD() {
-        DB_driver = "com.mysql.jdbc.Driver";
+        DB_driver = "com.mysql.cj.jdbc.Driver";
         host = "localhost:3306";
         db = "easy_parking_bd";
         url = "jdbc:mysql://" + host + "/" + db;
