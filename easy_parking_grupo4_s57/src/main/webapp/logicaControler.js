@@ -12,7 +12,7 @@ app.controller('controladorContactos', function($scope,$http){
     $scope.GuardarParqueadero=function(){
         
         let parqueadero={
-            proceso:"guardarParqueadero",
+            proceso:"guardarMvimiento",
             nombre:$scope.nombre,
             maxCapacidadCarros:$scope.maxCarros,
             tarifaCarros:$scope.tarifaCarros,
