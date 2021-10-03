@@ -28,7 +28,7 @@ public class ConexionBD {
         db = "easy_parking_bd";
         url = "jdbc:mysql://" + host + "/" + db;
         username = "root";
-        password = "root";
+        password = "Flukus..99";
         try {
             // Asignación del driver
             Class.forName(DB_driver);
