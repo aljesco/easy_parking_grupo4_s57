@@ -9,21 +9,19 @@ var app = angular.module('pruebaS57', []);
 
 app.controller('controladorContactos', function($scope,$http){
     
-    $scope.GuardarParqueadero=function(){
+    $scope.GuardarMovimiento=function(){
         
-        let parqueadero={
+        let Movimiento={
             proceso:"guardarMvimiento",
-            nombre:$scope.nombre,
-            maxCapacidadCarros:$scope.maxCarros,
-            tarifaCarros:$scope.tarifaCarros,
-            maxCapacidadMotos:$scope.maxMotos,
-            tarifaMotos:$scope.tarifaMotosu
+            placa:$scope.Placa,
+            tipoVehiculo:$scope.TipoVehiculo
+            
             
         };
         $http({
             method: 'POST',
             url:"peticionesParqueadero.jsp",
-            params: parqueadero
+            params: Movimiento
             
         }).then(function(respuesta){
             console.log(respuesta);

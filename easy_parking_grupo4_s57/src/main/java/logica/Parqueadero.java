@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author ajeo
+ *
  */
 public class Parqueadero {
     private int idParqueadero;

@@ -45,7 +45,7 @@
                 <div class="row">
                     <div class="col-5"></div>
                     <div class="col-2">
-                         <button type="button" class="btn btn-success">Guardar</button>
+                        <button type="submit" class="btn btn-success" ng-click="GuardarMovimiento()">Guardar</button>
                     </div>
                     <div class="col-5"></div>
                 </div>
