@@ -24,6 +24,104 @@
 
         <div  ng-app="pruebaS57" ng-controller="controladorContactos">
 
+            <div class="col-6">
+      <!--TARJETA------------------------------------------------->
+      <div class="card text-center">
+      
+        <h1>Formulario Parqueadero </h1>
+        
+        <br>
+        <br>
+        <!--FORMULARIO------------------------------------------------->
+        <div class="card-body tarjeta">
+            
+                
+            
+            
+          
+          <div class="form-floating ">
+            <input
+              type="text"
+              class="form-control txt"
+              id="floatingPassword"
+              placeholder="nombre"
+              ng-model="nombre"
+            />
+            <label>nombre del parqueadero</label>
+            
+            <br>
+            
+             <div class="form-floating ">
+            <input
+              type="text"
+              class="form-control txt"
+              id="floatingPassword"
+              placeholder="maxCarros"
+              ng-model="maxCarros"
+            />
+            <label>maxima capacidad de carros</label>
+            
+            <br>
+            
+            
+            
+             <div class="form-floating ">
+            <input
+              type="text"
+              class="form-control txt"
+              id="floatingPassword"
+              placeholder="tarifaCarros"
+              ng-model="tarifaCarros"
+            />
+            <label>tarifa de carros</label>
+            
+            <br>
+            
+             <div class="form-floating ">
+            <input
+              type="text"
+              class="form-control txt"
+              id="floatingPassword"
+              placeholder="maxMotos"
+              ng-model="maxMotos"
+            />
+           <label>hmaxima capacidad de motos</label>
+            
+            <br>
+            
+              <div class="form-floating ">
+            <input
+              type="text"
+              class="form-control txt"
+              id="floatingPassword"
+              placeholder="tarifaMotosu"
+              ng-model="tarifaMotosu"
+            />
+           <label>tarifa motos</label>
+            
+            <br>
+            <br>
+            <button class="btn btn-primary boton" type="button" ng-click="GuardarParqueadero()" >GUARDAR</button>
+          </div>
+            
+          
+
+        </div>
+
+        <!--FORMULARIO/----------------------------------------------------------->
+
+     
+        <!--TARJETA/------------------------------------------------------------------>
+      </div>
+        
+      </div>
+            
+            
+            
+            
+            
+            
+            
             <div class="container-fluid">
 
 
