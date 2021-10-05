@@ -5,13 +5,13 @@
  */
 package logica;
 
-import java.sql.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import persistencia.ConexionBD;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
+
 
 
 /**
@@ -21,8 +21,6 @@ import java.sql.Timestamp;
 public class Movimiento {
     
     private String placa;
-    
-    private Timestamp fechaHoraEntrada;
     private String tipoVehiculo ;
     
 
@@ -33,17 +31,12 @@ public class Movimiento {
         return placa;
     }
 
-    public void setplaca(String placa) {
+    public void setPlaca(String placa) {
         this.placa = placa;
     }
 
-    public Timestamp getfechaHoraEntrada() {
-        return fechaHoraEntrada;
-    }
-
-    public void setfechaHoraEntrada(Timestamp FechaHoraEntrada) {
-        this.fechaHoraEntrada = FechaHoraEntrada;
-    }
+   
+    
 
     public String gettipoVehiculo() {
         return tipoVehiculo;
@@ -58,9 +51,9 @@ public class Movimiento {
     // CRUD de parqueaderos
     public boolean guardarMovimiento(){
         ConexionBD conexion = new ConexionBD();
-        String sentencia = "INSERT INTO movimientos(placa, fechaHoraEntrada, tipoVehiculo)"
+        String sentencia = "INSERT INTO movimientos(placa, tipoVehiculo)"
                 + " VALUES ( '" + this.placa + "',"
-                + "'" + this.fechaHoraEntrada + "','" + this.tipoVehiculo  +  "');";
+                + "'" + this.tipoVehiculo + "');";
 
         // Configurar setAutocommit de conexionBD como FALSE
         if(conexion.setAutoCommitBD(false)){
@@ -111,15 +104,16 @@ public class Movimiento {
         while (datos.next()) {
             movimiento = new Movimiento();
            
-            movimiento.setplaca(datos.getString("placa"));
-            movimiento.setfechaHoraEntrada(datos.getTimestamp("fechaHoraEntrada"));
-            movimiento.setplaca(datos.getString("tipoVehiculo"));
+            movimiento.setPlaca(datos.getString("placa"));
+            
+            movimiento.setPlaca(datos.getString("tipoVehiculo"));
             
         }
         conexion.closeConnection();
         return listaMovimiento;
     }
 
+    @SuppressWarnings("empty-statement")
     public Movimiento obtenerMovimiento(String idplaca) throws SQLException{
         ConexionBD conexion = new ConexionBD();
         String sentencia = "SELECT * FROM movimientos WHERE placa = '" + idplaca + "';";
@@ -128,9 +122,9 @@ public class Movimiento {
         if (datos.next()) {
             movimiento = new Movimiento();
            
-            movimiento.setplaca(datos.getString("placa"));
-            movimiento.setfechaHoraEntrada(datos.getTimestamp("fechaHoraEntrada"));
-            movimiento.setplaca(datos.getString("tipoVehiculo"));
+            movimiento.setPlaca(datos.getString("placa"));
+           
+            movimiento.setPlaca(datos.getString("tipoVehiculo"));
         }
         else {
         conexion.closeConnection();

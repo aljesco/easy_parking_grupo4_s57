@@ -22,140 +22,142 @@
     </head>
     <body>
 
-        <div  ng-app="pruebaS57" ng-controller="controladorContactos">
+        <div  ng-app="pruebaS57" ng-controller="controladorParqueaderos"> 
 
-            <div class="col-6">
-      <!--TARJETA------------------------------------------------->
-      <div class="card text-center">
-      
-        <h1>Formulario Parqueadero </h1>
-        
-        <br>
-        <br>
-        <!--FORMULARIO------------------------------------------------->
-        <div class="card-body tarjeta">
-            
-                
-            
-            
-          
-          <div class="form-floating ">
-            <input
-              type="text"
-              class="form-control txt"
-              id="floatingPassword"
-              placeholder="nombre"
-              ng-model="nombre"
-            />
-            <label>nombre del parqueadero</label>
-            
-            <br>
-            
-             <div class="form-floating ">
-            <input
-              type="text"
-              class="form-control txt"
-              id="floatingPassword"
-              placeholder="maxCarros"
-              ng-model="maxCarros"
-            />
-            <label>maxima capacidad de carros</label>
-            
-            <br>
-            
-            
-            
-             <div class="form-floating ">
-            <input
-              type="text"
-              class="form-control txt"
-              id="floatingPassword"
-              placeholder="tarifaCarros"
-              ng-model="tarifaCarros"
-            />
-            <label>tarifa de carros</label>
-            
-            <br>
-            
-             <div class="form-floating ">
-            <input
-              type="text"
-              class="form-control txt"
-              id="floatingPassword"
-              placeholder="maxMotos"
-              ng-model="maxMotos"
-            />
-           <label>hmaxima capacidad de motos</label>
-            
-            <br>
-            
-              <div class="form-floating ">
-            <input
-              type="text"
-              class="form-control txt"
-              id="floatingPassword"
-              placeholder="tarifaMotosu"
-              ng-model="tarifaMotosu"
-            />
-           <label>tarifa motos</label>
-            
-            <br>
-            <br>
-            <button class="btn btn-primary boton" type="button" ng-click="GuardarParqueadero()" >GUARDAR</button>
-          </div>
-            
-          
 
-        </div>
+            <!--TARJETA------------------------------------------------->
+            <div class="card text-center" ng-show="!mostrarmovimiento"> 
 
-        <!--FORMULARIO/----------------------------------------------------------->
+                <h1>Formulario Parqueadero </h1>
 
-     
-        <!--TARJETA/------------------------------------------------------------------>
-      </div>
-        
-      </div>
-            
-            
-            
-            
-            
-            
-            
-            <div class="container-fluid">
+                <br>
+                <br>
+                <!--FORMULARIO------------------------------------------------->
+                <div class="card-body tarjeta">
 
+
+
+
+
+                    <div class="form-floating ">
+                        <input
+                            type="text"
+                            class="form-control txt"
+                            id="floatingPassword"
+                            placeholder="nombre"
+                            ng-model="nombre"
+                            />
+                        <label>nombre del parqueadero</label>
+
+                        <br>
+
+                        <div class="form-floating ">
+                            <input
+                                type="text"
+                                class="form-control txt"
+                                id="floatingPassword"
+                                placeholder="maxCarros"
+                                ng-model="maxCarros"
+                                />
+                            <label>maxima capacidad de carros</label>
+
+                            <br>
+
+
+
+                            <div class="form-floating ">
+                                <input
+                                    type="text"
+                                    class="form-control txt"
+                                    id="floatingPassword"
+                                    placeholder="tarifaCarros"
+                                    ng-model="tarifaCarros"
+                                    />
+                                <label>tarifa de carros</label>
+
+                                <br>
+
+                                <div class="form-floating ">
+                                    <input
+                                        type="text"
+                                        class="form-control txt"
+                                        id="floatingPassword"
+                                        placeholder="maxMotos"
+                                        ng-model="maxMotos"
+                                        />
+                                    <label>maxima capacidad de motos</label>
+
+                                    <br>
+
+                                    <div class="form-floating ">
+                                        <input
+                                            type="text"
+                                            class="form-control txt"
+                                            id="floatingPassword"
+                                            placeholder="tarifaMotosu"
+                                            ng-model="tarifaMotos"
+                                            />
+                                        <label>tarifa motos</label>
+
+                                        <br>
+                                        <br>
+                                        <button class="btn btn-primary boton" type="button" ng-click="GuardarParqueadero()" >GUARDAR</button>
+                                    </div>
+
+
+
+                                </div>
+
+                                <!--FORMULARIO/----------------------------------------------------------->
+
+
+                                <!--TARJETA/------------------------------------------------------------------>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br/>
+            <br/>
+            <br/>
+
+
+
+
+            <div class="container-fluid" ng-show="mostrarmovimiento">
+                <h1>{{nombre}}</h1>
 
                 <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Placa" aria-label="Placa" ng-model="Placa">
+                        <input type="text" class="form-control" placeholder="Placa" aria-label="Placa" ng-model="placa">
                     </div>
                     <div class="col">
-                        <select class="form-select" aria-label="Tipo de vehiculo" ng-model="TipoVehiculo">
-                        
+                        <select class="form-select" aria-label="Tipo de vehiculo" ng-model="tipoVehiculo">
+
                             <option value="1">Carro</option>
                             <option value="2">Moto</option>
-                            
+
                         </select>
                     </div>
                 </div>
                 <br/>
-                    
+
                 <div class="row">
-                    <div class="col-5"></div>
-                    <div class="col-2">
-                        <button type="submit" class="btn btn-success" ng-click="GuardarMovimiento()">Guardar</button>
-                    </div>
-                    <div class="col-5"></div>
+
+                    <button class="btn btn-primary boton" type="button" ng-click="guardarMovimientos()" >GUARDAR</button>
                 </div>
-                
-                
-                
+
             </div>
 
 
 
 
-        </div>
+
+
+
+
 
 
     </body>

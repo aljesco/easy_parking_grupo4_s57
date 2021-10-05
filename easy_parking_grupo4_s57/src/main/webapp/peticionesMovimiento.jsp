@@ -19,7 +19,7 @@
     switch (proceso) {
         case "guardarMovimiento":
             System.out.println("Guardar movimiento.");
-            movimiento.setplaca(request.getParameter("placa"));
+            movimiento.setPlaca(request.getParameter("placa"));
           
             movimiento.settipoVehiculo(request.getParameter("tipoVehiculo"));
 
@@ -39,7 +39,7 @@
                 respuesta += "\"" + proceso + "\": false";
             }
             break;
-        case "listarParqueaderos":
+        case "listarMovimiento":
             System.out.println("Mostrar Movimientos.");
             List<Movimiento> listaMovimiento = movimiento.listarMovimiento();
             if (listaMovimiento.isEmpty()) {
