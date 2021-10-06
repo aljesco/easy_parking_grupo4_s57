@@ -15,6 +15,7 @@
     String respuesta = "";
     
     String proceso = request.getParameter("proceso");
+    String placa = request.getParameter("placa");
     Movimiento movimiento = new Movimiento();
     switch (proceso) {
         case "guardarMovimiento":
@@ -48,6 +49,12 @@
                 respuesta += "\"" + proceso + "\": true,\"Movimientos\":" + new Gson().toJson(listaMovimiento);
             }
             break;
+         
+            
+            
+            
+            
+            
         default:
             respuesta += "\"ok\": false,";
             respuesta += "\"error\": \"INVALID\",";

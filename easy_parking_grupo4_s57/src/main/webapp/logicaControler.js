@@ -33,7 +33,7 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
 
             }).then(function (respuesta) {
                 console.log(respuesta);
-                if (respuesta.data.guardarMovimiento) {
+                if (respuesta.data.guardarParqueadero) {
                     alert('Guardado Exitoso');
                     $scope.listarContactos();
                 } else {
@@ -57,7 +57,8 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
             url: 'peticionesMovimiento.jsp',
             params: params
         }).then(function (respuesta) {
-            //$scope.movimientos = respuesta.data.Mo;
+           
+             //$scope.movimientos = respuesta.data.Movimientos;
             console.log(respuesta.data);
         });
     };

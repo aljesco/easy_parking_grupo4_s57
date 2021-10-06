@@ -211,7 +211,7 @@
                     <tbody>
                         <tr ng-repeat="movimiento in movimientos">
                             
-                            
+                            <th scope="row">{{movimiento.idmovimiento}}</th>
                             <td>{{movimiento.placa}}</td>
                             <td>{{movimiento.fechaHoraEntrada}}</td>
                             <td>{{movimiento.tipoVehiculo}}</td>

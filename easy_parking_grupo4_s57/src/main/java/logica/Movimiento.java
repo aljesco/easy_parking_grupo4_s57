@@ -11,6 +11,7 @@ import java.util.List;
 import persistencia.ConexionBD;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 
 
@@ -22,7 +23,7 @@ import java.sql.SQLException;
 public class Movimiento {
     private int idmovimiento; 
     private String placa;
-  
+    private Timestamp fechaHoraEntrada;
     private String tipoVehiculo ;
     private int valorPago; 
     
@@ -41,6 +42,14 @@ public class Movimiento {
     }
     public void setidmovimiento(int idmovimiento) {
         this.idmovimiento = idmovimiento;
+    }
+
+    public Timestamp getFechaHoraEntrada() {
+        return fechaHoraEntrada;
+    }
+
+    public void setFechaHoraEntrada(Timestamp fechaHoraEntrada) {
+        this.fechaHoraEntrada = fechaHoraEntrada;
     }
    
    
@@ -123,10 +132,10 @@ public class Movimiento {
             movimiento = new Movimiento();
             movimiento.setidmovimiento(datos.getInt("idmovimiento"));
             movimiento.setPlaca(datos.getString("placa"));
-            
+            movimiento.setFechaHoraEntrada(datos.getTimestamp("fechaHoraEntrada"));
             movimiento.settipoVehiculo(datos.getString("tipoVehiculo"));
             movimiento.setvalorPago(datos.getInt("valorPago"));
-            
+            listaMovimiento.add(movimiento);
             
         }
         conexion.closeConnection();
@@ -145,6 +154,7 @@ public class Movimiento {
             movimiento.setPlaca(datos.getString("placa"));
            
             movimiento.setPlaca(datos.getString("tipoVehiculo"));
+            
         }
         else {
         conexion.closeConnection();
