@@ -17,7 +17,7 @@ app.controller('controladorContactos', function($scope,$http){
             maxCapacidadCarros:$scope.maxCarros,
             tarifaCarros:$scope.tarifaCarros,
             maxCapacidadMotos:$scope.maxMotos,
-            tarifaMotos:$scope.tarifaMotosu
+            tarifaMotos:$scope.tarifaMotos
             
         };
         $http({
@@ -32,7 +32,20 @@ app.controller('controladorContactos', function($scope,$http){
     };
     
     
-    
+    $scope.listarParqueadero=function(){
+        
+        let parametros={
+            proceso:"listarParqueaderos"
+        };
+        
+        $http({
+            method: 'GET',
+            url:"peticionesParqueadero.jsp",
+            params: parametros
+        }).then(function(respuesta){
+            console.log(respuesta);
+        });
+    };
     
 });
 
