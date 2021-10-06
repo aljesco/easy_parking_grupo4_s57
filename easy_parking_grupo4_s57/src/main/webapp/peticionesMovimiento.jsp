@@ -24,9 +24,9 @@
             movimiento.settipoVehiculo(request.getParameter("tipoVehiculo"));
 
             if (movimiento.guardarMovimiento()) {
-                respuesta += "\"" + proceso + "\": true";
+                respuesta += "\"" + proceso + "\":true";
             } else {
-                respuesta += "\"" + proceso + "\": false";
+                respuesta += "\"" + proceso + "\":false";
             }
             break;
         
@@ -40,7 +40,7 @@
             }
             break;
         case "listarMovimiento":
-            System.out.println("Mostrar Movimientos.");
+            System.out.println("Mostrar Movimiento.");
             List<Movimiento> listaMovimiento = movimiento.listarMovimiento();
             if (listaMovimiento.isEmpty()) {
                 respuesta += "\"" + proceso + "\": true, \"Movimientos\":[]";

@@ -14,16 +14,18 @@ import java.sql.SQLException;
 
 
 
+
 /**
  *
  *
  */
 public class Movimiento {
-    
+    private int idmovimiento; 
     private String placa;
+  
     private String tipoVehiculo ;
+    private int valorPago; 
     
-
     public Movimiento() {
     }
 
@@ -34,8 +36,24 @@ public class Movimiento {
     public void setPlaca(String placa) {
         this.placa = placa;
     }
-
+    public int getidmovimiento() {
+        return idmovimiento;
+    }
+    public void setidmovimiento(int idmovimiento) {
+        this.idmovimiento = idmovimiento;
+    }
    
+   
+    
+    
+     public int getvalorPago() {
+        return valorPago;
+    }
+    public void setvalorPago(int valorPago) {
+        this.valorPago = valorPago;
+    }
+    
+    
     
 
     public String gettipoVehiculo() {
@@ -95,18 +113,20 @@ public class Movimiento {
 
     
 
-    public List<Movimiento> listarMovimiento() throws SQLException{
+    public List<Movimiento> listarMovimiento () throws SQLException{
         ConexionBD conexion = new ConexionBD();
-        String sentencia = "SELECT * FROM movimientos ORDER BY idmovimiento ASC;";
+        String sentencia = "SELECT * FROM movimientos ORDER BY placa;";
         List<Movimiento> listaMovimiento = new ArrayList<>();
         ResultSet datos = conexion.consultarBD(sentencia);
         Movimiento movimiento;
         while (datos.next()) {
             movimiento = new Movimiento();
-           
+            movimiento.setidmovimiento(datos.getInt("idmovimiento"));
             movimiento.setPlaca(datos.getString("placa"));
             
-            movimiento.setPlaca(datos.getString("tipoVehiculo"));
+            movimiento.settipoVehiculo(datos.getString("tipoVehiculo"));
+            movimiento.setvalorPago(datos.getInt("valorPago"));
+            
             
         }
         conexion.closeConnection();

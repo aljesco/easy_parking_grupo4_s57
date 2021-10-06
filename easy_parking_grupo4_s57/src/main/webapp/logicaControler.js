@@ -3,11 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/* global angular */
+/* global angular, $scope */
 
 var app = angular.module('pruebaS57', []);
 
 app.controller('controladorParqueaderos', function ($scope, $http) {
+
+///---------------------------------------------------MOVIMIENTOS-------------------------------------------------------
+    
+    $scope.mostrarFormularioParqueadero=true;
 
     $scope.guardarMovimientos = function () {
 
@@ -41,11 +45,24 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
             });
         }
 
+    };
+     $scope.listarMovimientos = function () {
+       $scope.listarContactos();
+        let params = {
+            proceso: 'listarMovimiento'
+        };
 
-
-
+        $http({
+            method:'GET',
+            url: 'peticionesMovimiento.jsp',
+            params: params
+        }).then(function (respuesta) {
+            //$scope.movimientos = respuesta.data.Mo;
+            console.log(respuesta.data);
+        });
     };
 
+///----------------------------------------------------PARQUEADERO-----------------------------------------------------------
 
     $scope.GuardarParqueadero = function () {
 
@@ -55,7 +72,8 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
             alert('Todos los campos son obligatorios');
         } else {
 
-            $scope.mostrarmovimiento = true;
+            $scope.mostrarmovimiento= true;
+            $scope.mostrarFormularioParqueadero=false;
             let parqueadero = {
                 proceso: "guardarParqueadero",
                 nombre: $scope.nombre,
@@ -77,8 +95,26 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
         }
         ;
 
-    }
+    };
 
+///-----------------------------------------------------------FUNTONS--------------------------------
+
+$scope.mostrarMovimientos=function(){
+    $scope.mostrarmovimiento = true;
+   $scope.listarcontactos=false;
+   $scope.mostrarFormularioParqueadero=false;
+};
+$scope.listarContactos=function(){
+    $scope.mostrarmovimiento = false;
+    $scope.listarcontactos=true;
+    $scope.mostrarFormularioParqueadero=false;
+};
+
+$scope.mostrarFormulario=function(){
+    $scope.mostrarmovimiento = false;
+    $scope.listarcontactos=false;
+    $scope.mostrarFormularioParqueadero=true;
+};
 
 
 

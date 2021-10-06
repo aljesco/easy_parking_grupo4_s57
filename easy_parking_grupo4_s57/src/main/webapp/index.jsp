@@ -17,16 +17,52 @@
             crossorigin="anonymous"
             />
         <link rel="stylesheet" href="estilos.css" />
-        <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>  
+        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>  
 
     </head>
     <body>
+        
+     
+        
+        
+        
+  <!--FORMULARIO PARQUEADEROS------------------------------------------------------------------------------------------------------------------------------------->
 
+        
         <div  ng-app="pruebaS57" ng-controller="controladorParqueaderos"> 
 
+            
+             <!--NAV BAR------------------------------------------------------------------------------------------------------------------------------------->
+       
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page"ng-click="mostrarFormulario()">Formulario</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" ng-click="mostrarMovimientos()">Movimientos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" ng-click="listarMovimientos()">Listar Movimientos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        
+     <!--NAV BAR------------------------------------------------------------------------------------------------------------------------------------->
+     
+        
+     
 
             <!--TARJETA------------------------------------------------->
-            <div class="card text-center" ng-show="!mostrarmovimiento"> 
+            <div class="card text-center" ng-show="mostrarFormularioParqueadero"> 
 
                 <h1>Formulario Parqueadero </h1>
 
@@ -124,7 +160,11 @@
             <br/>
 
 
-
+  <!--/FORMULARIO PARQUEADEROS------------------------------------------------------------------------------------------------------------------------------------->
+         
+            
+            
+   <!--MOVIMIENTOS/------------------------------------------------------------------------------------------------------------------------------------->
 
             <div class="container-fluid" ng-show="mostrarmovimiento">
                 <h1>{{nombre}}</h1>
@@ -151,13 +191,37 @@
 
             </div>
 
+   <!--MOVIMIENTOS/------------------------------------------------------------------------------------------------------------------------------------->
 
 
 
-
-
-
-
+   <div class="container-fluid " ng-show="listarcontactos">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-6" style="text-align: center"><h1>Lista de movimientos</h1></div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id movimiento</th>
+                            <th scope="col">Placa</th>
+                            <th scope="col">Fecha y hora entrada</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="movimiento in movimientos">
+                            
+                            
+                            <td>{{movimiento.placa}}</td>
+                            <td>{{movimiento.fechaHoraEntrada}}</td>
+                            <td>{{movimiento.tipoVehiculo}}</td>
+                           
+                            <td style="cursor: pointer" ng-click="mostrarFormActualizar(movimiento)">actualizar</td>
+                            <td style="cursor: pointer" ng-click="abrirModal(movimiento.idmovimiento)">borrar</td>
+                        </tr>
+                    </tbody>
+                </table>
+   </div>
 
 
     </body>

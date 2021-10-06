@@ -76,7 +76,7 @@ public class Parqueadero {
         String sentencia = "INSERT INTO parqueaderos(nombre, maxCapacidadCarros, maxCapacidadMotos, tarifaCarros, tarifaMotos)"
                 + " VALUES ( '" + this.nombre + "',"
                 + "'" + this.maxCapacidadCarros + "','" + this.maxCapacidadMotos + "',"
-                + "'" + this.tarifaCarros + "','" + this.tarifaMotos +  "');";
+                + "'" + this.tarifaCarros + "','" + this.tarifaMotos +  "');"; 
 
         // Configurar setAutocommit de conexionBD como FALSE
         if(conexion.setAutoCommitBD(false)){
