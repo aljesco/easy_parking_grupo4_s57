@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/* global angular, $scope */
+/* global angular, $scope, bootstrap */
 
 var app = angular.module('pruebaS57', []);
 
@@ -13,10 +13,14 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
     
     $scope.mostrarFormularioParqueadero=true;
     $scope.guardarMovimientos = function () {
-
+       let regexMinCharacter=/^.{6,}$/;
+        
         if ($scope.placa === undefined || $scope.tipoVehiculo === undefined) {
             alert('Todos los campos son obligatorios');
-        } else {
+        }else if(!regexMinCharacter.test($scope.placa)){
+            alert("error al digitar la placas");
+        }    
+         else {
 
             let Movimiento = {
                 proceso: "guardarMovimiento",
@@ -32,9 +36,10 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
 
             }).then(function (respuesta) {
                 console.log(respuesta);
-                if (respuesta.data.guardarParqueadero===true) {
+                if (respuesta.data.guardarMovimiento) {
                     alert('Guardado Exitoso');
-                   
+                    $scope.placa=undefined;
+                    $scope.tipoVehiculo=undefined;
                 } else {
                     alert('Error al guardar en la BD');
                 }
@@ -57,10 +62,36 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
             params: params
         }).then(function (respuesta) {
            
-             //$scope.movimient = respuesta.data.Movimientos;
-            console.log(respuesta.data);
+            $scope.movimientos = respuesta.data.Movimientos;
+            console.log(respuesta);
+        });
+        
+        
+        
+    };
+    
+    $scope.eliminarMovimiento = function () {
+        let params = {
+            proceso:'eliminarMovimiento',
+            idmovimiento:$scope.idParaEliminar
+        };
+        $http({
+            method: 'GET',
+            url: 'peticionesMovimiento.jsp',
+            params: params
+        }).then(function (respuesta) {
+            if (respuesta.data.eliminarMovimiento) {
+                alert('contacto eliminado');
+                 $scope.listarMovimientos();
+            } else {
+                alert('Error al eliminar contacto');
+            }
+
         });
     };
+        
+        
+    
 
 ///----------------------------------------------------PARQUEADERO-----------------------------------------------------------
 
@@ -116,6 +147,24 @@ $scope.mostrarFormulario=function(){
     $scope.mostrarFormularioParqueadero=true;
 };
 
+
+ $scope.abrirModal = function (idmovimiento) {
+        $scope.idParaEliminar = idmovimiento;
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
+            keyboard: false
+    
+    }); 
+        myModal.show();
+    };
+
+$scope.abrirModalActualizar = function (idmovimiento) {
+        $scope.idParaActualizar = idmovimiento;
+        var myModal = new bootstrap.Modal(document.getElementById('modalActualizar'), {
+            keyboard: false
+    
+    }); 
+        myModal.show();
+    };
 
 
 });

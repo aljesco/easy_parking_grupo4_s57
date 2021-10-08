@@ -10,14 +10,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
-            crossorigin="anonymous"
-            />
-        <link rel="stylesheet" href="estilos.css" />
-        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>  
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 
     </head>
     <body>
@@ -175,9 +170,9 @@
                     </div>
                     <div class="col">
                         <select class="form-select" aria-label="Tipo de vehiculo" ng-model="tipoVehiculo">
-
-                            <option value="1">Carro</option>
-                            <option value="2">Moto</option>
+                              
+                            <option  selected>Carro</option>
+                            <option >Moto</option>
 
                         </select>
                     </div>
@@ -205,22 +200,67 @@
                             <th scope="col">Id movimiento</th>
                             <th scope="col">Placa</th>
                             <th scope="col">Fecha y hora entrada</th>
-                            
+                            <th scope="col">Tipo de vehiculo</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="movimiento in movimientos">
                             
-                            <th scope="row">{{movimiento.idmovimiento}}</th>
+                            <th scope="row">{{$index+1}}</th>
                             <td>{{movimiento.placa}}</td>
                             <td>{{movimiento.fechaHoraEntrada}}</td>
                             <td>{{movimiento.tipoVehiculo}}</td>
                            
-                            <td style="cursor: pointer" ng-click="mostrarFormActualizar(movimiento)">actualizar</td>
+                            <td style="cursor: pointer" ng-click="abrirModalActualizar(movimiento.idmovimiento)">actualizar</td>
                             <td style="cursor: pointer" ng-click="abrirModal(movimiento.idmovimiento)">borrar</td>
                         </tr>
                     </tbody>
                 </table>
+       </div>
+       <!--MODAL--------------->
+                       
+            
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Borrar contacto</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Está seguro que desea eliminar el contacto?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" ng-click="eliminarMovimiento()">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         <div class="modal fade" id="modalActualizar" tabindex="-1" aria-labelledby="modalActualizar" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Actualizar contacto</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                 <input type="text" class="form-control" placeholder="Placa" aria-label="Placa" ng-model="placa">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" ng-click="eliminarMovimiento()">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+   
+       
+       
+       
    </div>
 
 

@@ -99,9 +99,9 @@ public class Movimiento {
         }
     }
     
-    public boolean borrarMovimiento(String idplaca){
+    public boolean borrarMovimiento(int idmovimiento){
         ConexionBD conexion = new ConexionBD();
-        String sentencia = "DELETE from movimientos WHERE placa = '" + idplaca + "'";
+        String sentencia = "DELETE from movimientos WHERE idmovimiento = '" + idmovimiento + "'";
 
         // Configurar setAutocommit de conexionBD como FALSE
         if(conexion.setAutoCommitBD(false)){
@@ -119,12 +119,33 @@ public class Movimiento {
             return false;
         }
     }
+    
+    public boolean actualizarContacto(){
+        ConexionBD conexion = new ConexionBD();
+        String sentencia = this.idmovimiento + "UPDATE `contactos` SET placa='" + this.placa + "',tipoVehiculo='" + this.tipoVehiculo +  "' WHERE idmovimiento" + ";";
+
+        if(conexion.setAutoCommitBD(false)){
+            if(conexion.actualizarBD(sentencia)){
+                conexion.commitBD();
+                conexion.closeConnection();
+                return true;
+            } else{
+                conexion.rollbackBD();
+                conexion.closeConnection();
+                return false;
+            }
+           
+        } else{
+            conexion.closeConnection();
+            return false;
+        }
+    }
 
     
 
     public List<Movimiento> listarMovimiento () throws SQLException{
         ConexionBD conexion = new ConexionBD();
-        String sentencia = "SELECT * FROM movimientos ORDER BY placa;";
+        String sentencia = "SELECT * FROM movimientos ORDER BY idmovimiento ASC;";
         List<Movimiento> listaMovimiento = new ArrayList<>();
         ResultSet datos = conexion.consultarBD(sentencia);
         Movimiento movimiento;

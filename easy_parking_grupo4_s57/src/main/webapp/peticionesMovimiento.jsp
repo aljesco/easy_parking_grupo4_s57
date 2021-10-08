@@ -5,7 +5,7 @@
 --%>
 
 
-<%@page import="com.google.Gson.Gson"%>
+<%@page import="com.google.gson.Gson"%>
 <%@page import="java.util.List"%>
 <%@page import="logica.Movimiento"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -32,7 +32,7 @@
         
         case "eliminarMovimiento":
             System.out.println("Eliminar Movimiento.");
-            String id = request.getParameter("placa");
+            int id = Integer.parseInt(request.getParameter("idmovimiento"));
             if (movimiento.borrarMovimiento(id)) {
                 respuesta += "\"" + proceso + "\": true";
             } else {
