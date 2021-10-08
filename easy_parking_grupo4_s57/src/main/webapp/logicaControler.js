@@ -12,7 +12,6 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
 ///---------------------------------------------------MOVIMIENTOS-------------------------------------------------------
     
     $scope.mostrarFormularioParqueadero=true;
-
     $scope.guardarMovimientos = function () {
 
         if ($scope.placa === undefined || $scope.tipoVehiculo === undefined) {
@@ -33,9 +32,9 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
 
             }).then(function (respuesta) {
                 console.log(respuesta);
-                if (respuesta.data.guardarParqueadero) {
+                if (respuesta.data.guardarParqueadero===true) {
                     alert('Guardado Exitoso');
-                    $scope.listarContactos();
+                   
                 } else {
                     alert('Error al guardar en la BD');
                 }
@@ -58,7 +57,7 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
             params: params
         }).then(function (respuesta) {
            
-             //$scope.movimientos = respuesta.data.Movimientos;
+             //$scope.movimient = respuesta.data.Movimientos;
             console.log(respuesta.data);
         });
     };

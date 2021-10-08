@@ -4,18 +4,17 @@
     Author     : eleme
 --%>
 
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="com.google.gson.Gson"%>
+
+<%@page import="com.google.Gson.Gson"%>
 <%@page import="java.util.List"%>
 <%@page import="logica.Movimiento"%>
-<%@page import="java.util.List"%>>
-<%@page import="java.sql.Date"%>>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 
 <%
-    String respuesta = "";
-    
+    String respuesta = "{";
     String proceso = request.getParameter("proceso");
-    String placa = request.getParameter("placa");
+ 
     Movimiento movimiento = new Movimiento();
     switch (proceso) {
         case "guardarMovimiento":
@@ -59,7 +58,7 @@
             respuesta += "\"ok\": false,";
             respuesta += "\"error\": \"INVALID\",";
             respuesta += "\"errorMsg\": \"Lo sentimos, los datos que ha enviado,"
-                    + " son inválidos. Corrijalos y vuelva a intentar por favor.\"";
+                    + " son invÃ¡lidos. Corrijalos y vuelva a intentar por favor.\"";
     }
     respuesta += "}";
     response.setContentType("application/json;charset=iso-8859-1");
