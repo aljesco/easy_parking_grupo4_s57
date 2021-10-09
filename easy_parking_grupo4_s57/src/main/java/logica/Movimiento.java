@@ -120,7 +120,7 @@ public class Movimiento {
         }
     }
     
-    public boolean actualizarContacto(){
+    public boolean actualizarMovimiento(int idmovimiento){
         ConexionBD conexion = new ConexionBD();
         String sentencia = this.idmovimiento + "UPDATE `contactos` SET placa='" + this.placa + "',tipoVehiculo='" + this.tipoVehiculo +  "' WHERE idmovimiento" + ";";
 

@@ -90,7 +90,28 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
         });
     };
         
-        
+   $scope.actualizarMovimiento = function () {
+        let params = {
+           proceso: "actualizarMovimiento",
+           placa: $scope.placa,
+           tipoVehiculo: $scope.tipoVehiculo,
+           idmovimiento:$scope.idParaActualizar
+        };
+
+        $http({
+            method: 'GET',
+            url: 'peticionesMovimiento.jsp',
+            params: params
+        }).then(function (respuesta) {
+            if (respuesta.data.actualizarMovimiento) {
+                alert('Actualización exitosa');
+                $scope.listarMovimientos();
+            } else {
+                alert('No se pudo actualizar');
+            }
+            console.log(respuesta);
+        });
+    };     
     
 
 ///----------------------------------------------------PARQUEADERO-----------------------------------------------------------

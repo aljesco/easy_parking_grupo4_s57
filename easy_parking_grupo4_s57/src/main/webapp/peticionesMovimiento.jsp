@@ -39,6 +39,7 @@
                 respuesta += "\"" + proceso + "\": false";
             }
             break;
+            
         case "listarMovimiento":
             System.out.println("Mostrar Movimiento.");
             List<Movimiento> listaMovimiento = movimiento.listarMovimiento();
@@ -48,7 +49,22 @@
                 respuesta += "\"" + proceso + "\": true,\"Movimientos\":" + new Gson().toJson(listaMovimiento);
             }
             break;
-         
+        case "actualizarMovimiento":
+        
+        System.out.println("Actualizar Movimiento");
+        movimiento.setidmovimiento(Integer.parseInt(request.getParameter("idmovimiento")));
+        movimiento.setPlaca(request.getParameter("placa"));
+          
+        movimiento.settipoVehiculo(request.getParameter("tipoVehiculo"));
+       
+
+        if(movimiento.actualizarMovimiento()){
+          
+            respuesta += "\"" + proceso + "\": true";  // el \ se usa para concatenar en json indicando que se hizo el proceso (true)
+        } else{
+            respuesta += "\"" + proceso + "\": false";  // el \ se usa para concatenar en json indicando que NO se hizo el proceso (false)
+        }
+        break;
             
             
             

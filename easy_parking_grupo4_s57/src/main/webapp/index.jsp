@@ -243,15 +243,21 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Actualizar contacto</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Actualizar Movimiento</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                  <input type="text" class="form-control" placeholder="Placa" aria-label="Placa" ng-model="placa">
+                                 <select class="form-select" aria-label="Tipo de vehiculo" ng-model="tipoVehiculo">
+                              
+                            <option  selected>Carro</option>
+                            <option >Moto</option>
+
+                                 </select>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" ng-click="eliminarMovimiento()">Eliminar</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" ng-click="actualizarMovimient()">Actualizar</button>
                             </div>
                         </div>
                     </div>
