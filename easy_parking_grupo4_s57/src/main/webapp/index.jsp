@@ -17,90 +17,15 @@
     </head>
     <body>
         
-        <div  ng-app="pruebaS57" ng-controller="controladorContactos">
-
-     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" ng-click="mostrarFormulario()">Guardar contacto</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link"  ng-click="listarParqueadero()">Listar Parqueaderos</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            
-      <!--TARJETA------------------------------------------------->
-      <div class="card text-center">
-      
-        <h1>Formulario Parqueadero </h1>
+     
         
-        <br>
-        <br>
-        <!--FORMULARIO------------------------------------------------->
-        <div class="card-body tarjeta">
-            
-                
-            
-            
-          
-          <div class="form-floating ">
-            <input
-              type="text"
-              class="form-control txt"
-              id="floatingPassword"
-              placeholder="nombre"
-              ng-model="nombre"
-            />
-            <label>nombre del parqueadero</label>
-            </div>
-            <br>
-            
-             <div class="form-floating ">
-            <input
-              type="text"
-              class="form-control txt"
-              id="floatingPassword"
-              placeholder="maxCarros"
-              ng-model="maxCarros"
-            />
-            <label>maxima capacidad de carros</label>
-            
-            <br>
-            
-            </div>
-            
-             <div class="form-floating ">
-            <input
-              type="text"
-              class="form-control txt"
-              id="floatingPassword"
-              placeholder="tarifaCarros"
-              ng-model="tarifaCarros"
-            />
-            <label>tarifa de carros</label>
-            
-            <br>
-            
-             <div class="form-floating ">
-            <input
-              type="text"
-              class="form-control txt"
-              id="floatingPassword"
-              placeholder="maxMotos"
-              ng-model="maxMotos"
-            />
-           <label>hmaxima capacidad de motos</label>
+        
+        
+  <!--FORMULARIO PARQUEADEROS------------------------------------------------------------------------------------------------------------------------------------->
+
+        
+        <div  ng-app="pruebaS57" ng-controller="controladorParqueaderos"> 
+
             
              <!--NAV BAR------------------------------------------------------------------------------------------------------------------------------------->
        
@@ -208,7 +133,7 @@
                                         <br>
                                         <br>
                                         <button class="btn btn-primary boton" type="button" ng-click="GuardarParqueadero()" >GUARDAR</button>
-                                    </div>
+                 git                    </div>
 
 
 
@@ -233,15 +158,6 @@
   <!--/FORMULARIO PARQUEADEROS------------------------------------------------------------------------------------------------------------------------------------->
          
             
-              <div class="form-floating ">
-            <input
-              type="text"
-              class="form-control txt"
-              id="floatingPassword"
-              placeholder="tarifaMotosu"
-              ng-model="tarifaMotos"
-            />
-           <label>tarifa motos</label>
             
    <!--MOVIMIENTOS/------------------------------------------------------------------------------------------------------------------------------------->
 
@@ -306,48 +222,54 @@
        <!--MODAL--------------->
                        
             
-          
-             </div>
-        </div>
-      </div> 
-     </div>   
-        <!--FORMULARIO/----------------------------------------------------------->
-
-     <div class="row d-flex justify-content-center">
-                    <div class="col-6" style="text-align: center"><h1>Lista de contactos</h1></div>
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Borrar Movimiento</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Está seguro que desea eliminar el Movimiento?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" ng-click="eliminarMovimiento()">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">nombre</th>
-                            <th scope="col">maxCarros</th>
-                            <th scope="col">tarifaCarros</th>
-                            <th scope="col">maxMotos</th>
-                            <th scope="col">tarifaMotos</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="contacto in contactos">
-                            <th scope="row">{{contacto.nombre}}</th>
-                            
-                            <td>{{contacto.maxCarros}}</td>
-                            <td>{{contacto.tarifaCarros}}</td>
-                            <td>{{contacto.tarifaCarros}}</td>
-                            <td>{{contacto.maxMotos}}</td>
-                            
-                            <td style="cursor: pointer" ng-click="mostrarFormActualizar(contacto)">actualizar</td>
-                            <td style="cursor: pointer" ng-click="abrirModal(contacto.identificacion)">borrar</td>
-                        </tr>
-                    </tbody>
-                </table>
+         <div class="modal fade" id="modalActualizar" tabindex="-1" aria-labelledby="modalActualizar" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Actualizar Movimiento</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                 <input type="text" class="form-control" placeholder="Placa" aria-label="Placa" ng-model="placa">
+                                 <select class="form-select" aria-label="Tipo de vehiculo" ng-model="tipoVehiculo">
+                              
+                            <option  selected>Carro</option>
+                            <option >Moto</option>
 
-     
-        
-      
-    
-        
-   </div>    
+                                 </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" ng-click="actualizarMovimiento()">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+   
+       
+       
+       
+   </div>
+
+
     </body>
     <script src="logicaControler.js"></script>   
 </html>
