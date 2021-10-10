@@ -49,23 +49,26 @@
                 respuesta += "\"" + proceso + "\": true,\"Movimientos\":" + new Gson().toJson(listaMovimiento);
             }
             break;
+            
+       
         case "actualizarMovimiento":
         
-        System.out.println("Actualizar Movimiento");
-        movimiento.setidmovimiento(Integer.parseInt(request.getParameter("idmovimiento")));
+        System.out.println("Actualizar Contacto");
+        movimiento.setidmovimiento(Integer.parseInt(request.getParameter("idmovimiento"))); //a este hay que convertirlo de entero a string
         movimiento.setPlaca(request.getParameter("placa"));
-          
         movimiento.settipoVehiculo(request.getParameter("tipoVehiculo"));
-       
+        
 
         if(movimiento.actualizarMovimiento()){
-          
+            //si guarda bien el contacto, se concatena otros datos para el json
             respuesta += "\"" + proceso + "\": true";  // el \ se usa para concatenar en json indicando que se hizo el proceso (true)
         } else{
             respuesta += "\"" + proceso + "\": false";  // el \ se usa para concatenar en json indicando que NO se hizo el proceso (false)
         }
+
+
+        
         break;
-            
             
             
             

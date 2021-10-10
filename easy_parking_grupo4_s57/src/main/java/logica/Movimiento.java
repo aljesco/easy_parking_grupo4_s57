@@ -120,10 +120,10 @@ public class Movimiento {
         }
     }
     
-    public boolean actualizarMovimiento(int idmovimiento){
+    public boolean actualizarMovimiento(){
         ConexionBD conexion = new ConexionBD();
-        String sentencia = this.idmovimiento + "UPDATE `contactos` SET placa='" + this.placa + "',tipoVehiculo='" + this.tipoVehiculo +  "' WHERE idmovimiento" + ";";
-
+        String sentencia = "UPDATE `movimientos` SET placa='" + this.placa + "',tipoVehiculo='" + this.tipoVehiculo + "' WHERE idmovimiento=" + this.idmovimiento +";";
+        System.out.println(sentencia);
         if(conexion.setAutoCommitBD(false)){
             if(conexion.actualizarBD(sentencia)){
                 conexion.commitBD();

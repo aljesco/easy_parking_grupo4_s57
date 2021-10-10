@@ -226,11 +226,11 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Borrar contacto</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Borrar Movimiento</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                Está seguro que desea eliminar el contacto?
+                                Está seguro que desea eliminar el Movimiento?
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -257,7 +257,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" ng-click="actualizarMovimient()">Actualizar</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" ng-click="actualizarMovimiento()">Actualizar</button>
                             </div>
                         </div>
                     </div>
