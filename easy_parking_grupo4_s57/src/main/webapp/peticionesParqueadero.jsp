@@ -1,13 +1,14 @@
 <%-- 
     Document   : peticiones
     Created on : 22/09/2021, 08:16:52 PM
-    Author     : ajeo
+    Author     : eleme
 --%>
 
 <%@page import="com.google.gson.Gson"%>
 <%@page import="java.util.List"%>
 <%@page import="logica.Parqueadero"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 
 <%
     String respuesta = "";
@@ -63,6 +64,9 @@
                 respuesta += "\"" + proceso + "\": true,\"Parqueadero\":" + new Gson().toJson(listaParqueaderos);
             }
             break;
+            
+            
+            
         default:
             respuesta += "\"ok\": false,";
             respuesta += "\"error\": \"INVALID\",";
