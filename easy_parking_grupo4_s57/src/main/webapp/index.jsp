@@ -9,11 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Easy Parking</title>
        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
         <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
-
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <link rel="stylesheet" href="estilos.css">
     </head>
     <body>
         
@@ -38,13 +40,13 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page"ng-click="mostrarFormulario()">Formulario</a>
+                                <a class="nav-link " ng-click="mostrarFormulario()" style="cursor:pointer;color:white">Formulario</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" ng-click="mostrarMovimientos()">Movimientos</a>
+                                <a class="nav-link" href="#" ng-click="mostrarMovimientos()" style="color:white">Movimientos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" ng-click="listarMovimientos()">Listar Movimientos</a>
+                                <a class="nav-link" href="#" ng-click="listarMovimientos()" style="color:white">Listar Movimientos</a>
                             </li>
                         </ul>
                     </div>
@@ -160,10 +162,18 @@
             
             
    <!--MOVIMIENTOS/------------------------------------------------------------------------------------------------------------------------------------->
-
-            <div class="container-fluid" ng-show="mostrarmovimiento">
-                <h1>{{nombre}}</h1>
-
+   <div ng-show="mostrarmovimiento">
+       <div class="nombre-parqueadero">
+           <h1>{{nombre}}</h1>
+       </div>
+       
+   <div class="card" >
+     
+        <div class="container-fluid" >  <!--se deja ese nombre por que al cambiarlo hay errores -->
+            <div class="header-movimientos">
+                <h1>Ingreso de vehiculos</h1>
+            </div>
+                
                 <div class="row">
                     <div class="col">
                         <input type="text" class="form-control" placeholder="Placa" aria-label="Placa" ng-model="placa">
@@ -185,6 +195,10 @@
                 </div>
 
             </div>
+   </div>
+   </div> 
+   
+           
 
    <!--MOVIMIENTOS/------------------------------------------------------------------------------------------------------------------------------------->
 
@@ -192,9 +206,9 @@
 
    <div class="container-fluid " ng-show="listarcontactos">
                 <div class="row d-flex justify-content-center">
-                    <div class="col-6" style="text-align: center"><h1>Lista de movimientos</h1></div>
+                    <div class="col-6 titulo-tabla" style="text-align: center"><h1>Lista de movimientos</h1></div>
                 </div>
-                <table class="table">
+       <table class="table" style="background-color: rgba(0,0,0,.5); color: white;">
                     <thead>
                         <tr>
                             <th scope="col">Id movimiento</th>
@@ -234,7 +248,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" ng-click="eliminarMovimiento()">Eliminar</button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" ng-click="eliminarMovimiento()">Eliminar</button>
                             </div>
                         </div>
                     </div>
@@ -257,7 +271,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" ng-click="actualizarMovimiento()">Actualizar</button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" ng-click="actualizarMovimiento()">Actualizar</button>
                             </div>
                         </div>
                     </div>

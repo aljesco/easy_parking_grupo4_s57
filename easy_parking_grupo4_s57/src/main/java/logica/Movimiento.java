@@ -162,6 +162,8 @@ public class Movimiento {
         conexion.closeConnection();
         return listaMovimiento;
     }
+    
+    
 
     @SuppressWarnings("empty-statement")
     public Movimiento obtenerMovimiento(String idplaca) throws SQLException{

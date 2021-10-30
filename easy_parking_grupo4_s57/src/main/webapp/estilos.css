@@ -8,58 +8,58 @@ and open the template in the editor.
     Author     : eleme
 */
 
+
 body{
-  
-  
-}
-
-.login{
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
-.card {
-  height: 40vw;
-  width: 70%;
-  margin-left: 7%;
-  background-color: rgba(0, 0, 0, .6);
-  display:block;
- 
-}
-.card h1 {
-  color: white;
-}
-.boton{
-  width: 100%;
-}
-
-.forgot_pass{
-  color: white;
-  text-decoration: none;
-  text-align: start;
-}
-.icon{
-  height: 13vw;
-    width: 13vw;
-}
-
-@media only screen and (max-width: 850px) {
-  .card {
-    height: 80vw;
-    width: 90%;
-    margin-left: 7%;
+    background: linear-gradient(45deg, #BB1881, #F88B50);
     
-  }
-  
+}
+.navbar{
+        background-color: rgba(0,0,0,0)!important;
+}
 
-  
+.card {
+    
+    width:50vw;
+    background:#e6e6e6;border-radius:8px;box-shadow:0 0 40px -10px #000;margin:calc(50vh - 220px) auto;padding:20px 30px;max-width:calc(100vw - 40px);box-sizing:border-box;font-family:'Montserrat',sans-serif;position:relative
+}
+.modal-content{
+    border-radius: 1.3rem;
 
 }
-@media only screen and (max-width: 1200px){
-  body{
-    background-size: 200vh;
-  }
+
+.modal-header{
+    border-top-left-radius: calc(1.3rem - 1px);
+    border-top-right-radius: calc(1.3rem - 1px);
+    background-color: cornflowerblue;
 }
+
+.modal-body input{
+        margin-bottom: 1rem;
+}
+.titulo-tabla{
+    color:white;
+}
+.header-movimientos{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+.nombre-parqueadero{
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+@media only screen and (max-width: 1050px) {
+  label{
+    font-size: 2vw;
+}
+.card{
+    width: 80vw;
+}
+}
+@media only screen and (max-width: 600px) {
+    
+   label{
+    font-size: 2.5vw;
+} 
+background-color: cornflowerblue;

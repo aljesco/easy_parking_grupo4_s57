@@ -16,11 +16,12 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
        let regexMinCharacter=/^.{6,}$/;
         
         if ($scope.placa === undefined || $scope.tipoVehiculo === undefined) {
-            alert('Todos los campos son obligatorios');
+            swal('Todos los campos son obligatorios',"se deben llenar todos los campos","error");
         }else if(!regexMinCharacter.test($scope.placa)){
-            alert("error al digitar la placas");
+            swal("error al digitar la placas","","error");
         }    
          else {
+             
 
             let Movimiento = {
                 proceso: "guardarMovimiento",
@@ -37,14 +38,14 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
             }).then(function (respuesta) {
                 console.log(respuesta);
                 if (respuesta.data.guardarMovimiento) {
-                    alert('Guardado Exitoso');
+                    swal('Guardado Exitoso',"",'success');
                     $scope.placa=undefined;
                     $scope.tipoVehiculo=undefined;
                 } else {
-                    alert('Error al guardar en la BD');
+                    swal('Error al guardar en la Base de datos',"",'error');
                 }
             }).catch(function (error) {
-                alert('Servicio no disponible, intente más tarde!');
+                swal('Servicio no disponible, intente más tarde!');
                 console.log(error);
             });
         }
@@ -81,10 +82,10 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
             params: params
         }).then(function (respuesta) {
             if (respuesta.data.eliminarMovimiento) {
-                alert('contacto eliminado');
+                swal('movimiento eliminado',"",'success');
                  $scope.listarMovimientos();
             } else {
-                alert('Error al eliminar contacto');
+                swal('Error al eliminar movimiento',"","error");
             }
 
         });
@@ -104,10 +105,10 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
             params: params
         }).then(function (respuesta) {
             if (respuesta.data.actualizarMovimiento) {
-                alert('Actualización exitosa');
+                swal('Actualización exitosa',"","succes");
                 $scope.listarMovimientos();
             } else {
-                alert('No se pudo actualizar');
+                swal('No se pudo actualizar',"","error");
             }
             console.log(respuesta);
         });
@@ -121,7 +122,7 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
         if ($scope.nombre === undefined || $scope.maxCarros === undefined
                 || $scope.tarifaCarros === undefined || $scope.maxMotos === undefined ||
                 $scope.tarifaMotos === undefined) {
-            alert('Todos los campos son obligatorios');
+            swal('Todos los campos son obligatorios');
         } else {
 
             $scope.mostrarmovimiento= true;
@@ -141,6 +142,7 @@ app.controller('controladorParqueaderos', function ($scope, $http) {
                 params: parqueadero
 
             }).then(function (respuesta) {
+                swal("Parqueadero guardado con Exito","","success")
                 console.log(respuesta);
             });
 
